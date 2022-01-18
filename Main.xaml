@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>760,2552.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>790,3202.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -78,7 +78,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="752,2488" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap:VirtualizedContainerService.HintSize="756.666666666667,3138" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="outputDataTable" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="usnList" />
@@ -89,34 +89,42 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="710.4,2625.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="C:\Users\Suraj\Desktop\thisisstardust.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="714.666666666667,2920.66666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="C:\Users\vridh\Downloads\OutputFile.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="676.8,2516" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <Sequence sap:VirtualizedContainerService.HintSize="680.666666666667,2812" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="column_no" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[studentSheet]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="635.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="sd" />
-            <Sequence DisplayName="Open Zoom CSV" sap:VirtualizedContainerService.HintSize="635.2,248" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[studentSheet]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="638.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="sd" />
+            <Sequence DisplayName="Open Zoom CSV" sap:VirtualizedContainerService.HintSize="638.666666666667,248.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[outputDataTable]" Delimitator="Comma" DisplayName="Read CSV" FilePath="C:\Users\Suraj\Desktop\sd.csv" sap:VirtualizedContainerService.HintSize="433.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+              <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[outputDataTable]" Delimitator="Comma" DisplayName="Read CSV" FilePath="C:\Users\vridh\Downloads\Input_file.csv" sap:VirtualizedContainerService.HintSize="434,156.666666666667" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
             </Sequence>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[outputDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="635.2,2035.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="638.666666666667,244.666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Enter Column for marking attendance: " Title="column number">
+              <ui:InputDialog.Result>
+                <OutArgument x:TypeArguments="x:String">[column_no]</OutArgument>
+              </ui:InputDialog.Result>
+            </ui:InputDialog>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[outputDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="638.666666666667,2048" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="601.6,1914.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604.666666666667,1927.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="x" />
                       <Variable x:TypeArguments="x:String" Name="variable1" />
@@ -132,7 +140,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign DisplayName="Assign" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign DisplayName="Assign" sap:VirtualizedContainerService.HintSize="562.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[x]</OutArgument>
                       </Assign.To>
@@ -140,7 +148,7 @@
                         <InArgument x:TypeArguments="x:String">[row(1).ToString.ToUpper]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="562.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[usnRaw]</OutArgument>
                       </Assign.To>
@@ -148,7 +156,7 @@
                         <InArgument x:TypeArguments="x:String">[x.Split({"@"},stringsplitoptions.None).ToList(0)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign sap:VirtualizedContainerService.HintSize="562.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[first1ms]</OutArgument>
                       </Assign.To>
@@ -156,9 +164,9 @@
                         <InArgument x:TypeArguments="x:Int32">[usnRaw.IndexOf("1MS")]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <If Condition="[first1ms&gt;-1 And usnRaw.Length&gt;=10]" sap:VirtualizedContainerService.HintSize="560,1521.6" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[first1ms&gt;-1 And usnRaw.Length&gt;=10]" sap:VirtualizedContainerService.HintSize="562.666666666667,1529.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence DisplayName="When Student is present" sap:VirtualizedContainerService.HintSize="524.8,1332.8" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="When Student is present" sap:VirtualizedContainerService.HintSize="526,1338" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="usnLocation" />
                             <Variable x:TypeArguments="x:Int32" Name="usnRowIndex" />
@@ -168,7 +176,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_4">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[usn]</OutArgument>
                             </Assign.To>
@@ -176,20 +184,20 @@
                               <InArgument x:TypeArguments="x:String">[usnRaw.Substring(first1ms,10)]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:ExcelLookUpRange Range="{x:Null}" DisplayName="LookUp Range" sap:VirtualizedContainerService.HintSize="483.2,88" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_1" Result="[usnLocation]" SheetName="sd" Value="[usn]" />
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[usnLocation]" />
-                          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[studentSheet]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="483.2,295.2" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnIndex="[1]" LookupValue="[usn]" RowIndex="[usnRowIndex]" />
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="483.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[usnLocation.Substring(1)]" />
-                          <If Condition="[Not usnLocation.Equals(&quot;-1&quot;)]" sap:VirtualizedContainerService.HintSize="483.2,472" sap2010:WorkflowViewState.IdRef="If_2">
+                          <ui:ExcelLookUpRange Range="{x:Null}" DisplayName="LookUp Range" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_1" Result="[usnLocation]" SheetName="sd" Value="[usn]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[usnLocation]" />
+                          <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[studentSheet]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="484,299.333333333333" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnIndex="[1]" LookupValue="[usn]" RowIndex="[usnRowIndex]" />
+                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[usnLocation.Substring(1)]" />
+                          <If Condition="[Not usnLocation.Equals(&quot;-1&quot;)]" sap:VirtualizedContainerService.HintSize="484,472.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="375.2,283.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <Sequence sap:VirtualizedContainerService.HintSize="376,281.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="333.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;F&quot;+usnLocation.Substring(1)]" />
-                                <ui:ExcelWriteCell Cell="[&quot;G&quot;+usnLocation.Substring(1)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="sd" Text="Y" />
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[column_no+usnLocation.Substring(1)]" />
+                                <ui:ExcelWriteCell Cell="[column_no+usnLocation.Substring(1)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="sd" Text="Y" />
                               </Sequence>
                             </If.Then>
                             <If.Else>
@@ -222,5 +230,6 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="714.666666666667,85.3333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Succesfully marked attendance&quot;]" />
   </Sequence>
 </Activity>
